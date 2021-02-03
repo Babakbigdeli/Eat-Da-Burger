@@ -18,3 +18,15 @@ var connection = require('./connection.js');
             callback(result);
         });
         },
+
+        //Setting the function to update data from table
+        updateOne: function ( tableName,columnName, devoured, id, callback) {
+        connection.query("UPDATE ?? SET ?? = ? WHERE id = ?", [tableName , columnName ,devoured , id], function (err, result) {
+            if (err) throw err;			
+            callback(result);
+            
+        });
+        },
+        };
+        
+        module.exports = orm;
