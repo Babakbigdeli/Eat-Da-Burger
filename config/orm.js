@@ -10,3 +10,11 @@ var connection = require('./connection.js');
             callback(result);
         })
         },
+
+        //Setting the function to insert data into table
+        insertOne: function (tableName, columnName, burger_name, callback) {
+        connection.query("INSERT INTO ?? (??) VALUES (?)", [ tableName ,columnName, burger_name], function (err, result) {
+            if (err) throw err;			
+            callback(result);
+        });
+        },
