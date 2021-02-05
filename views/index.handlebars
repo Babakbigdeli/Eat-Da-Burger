@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2 class="card-header text-center">What Burger Are You Having Today?</h2>            
+    <div class="card-body">
+      <div class="form-group">
+        <label for="new_burger"></label>
+        <textarea class="form-control" rows="4" id="new_burger" name="burger_name"></textarea>
+        <button id="submit-button" type="submit" class="btn btn-danger mx-auto mt-4"><i class="fas fa-utensils"></i>  Place an Order!</button> 
+      </div>
+    </div> 
+  </div>
+</div>
+<div class="row"> 
+  <div class="col-md-6">
+    <div class="card">
+      <h3 class="card-header text-center">Burgers You Can Eat Now</h3>
+      <div class="card-body">
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <div class="input-group my-4">
+              <li class="form-control">{{id}}. {{burger_name}}</li> <button class="btn btn-success devour-button ml-3" data-id="{{id}}" type="submit">Devour It!</button>  
+            </div>
+          {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <h3 class="card-header text-center">Burgers You Devoured</h3>
+      <div class="card-body">
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div class="input-group my-4">
+              <li class="form-control">{{this.id}}. {{this.burger_name}}</li><button class="btn btn-success restore-button ml-3" data-id="{{id}}" type="submit">Restore</button>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div> 
+</div>
