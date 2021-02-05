@@ -23,7 +23,7 @@ router.post("/api/burger", function(req, res) {
 //creating Post route via Burger model
 router.put("/api/burger/:id", function(req, res) {
     burger.updateOne(req.params.id, function(data){
-      res.json({ok:true});
+      res.json({id: result.updateID});
     });
   });
 
