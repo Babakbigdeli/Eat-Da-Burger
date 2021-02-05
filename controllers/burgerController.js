@@ -13,5 +13,10 @@ router.get("/", function(req, res) {
     });
 });
 
-
+//creating Post route via Burger model
+router.post("/api/burger", function(req, res) {
+    burger.insertOne(req.body.burger_name, function(data) {
+      res.json({id: result.insertId});
+    });
+  });
 
