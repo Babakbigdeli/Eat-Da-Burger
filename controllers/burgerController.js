@@ -15,14 +15,14 @@ router.get("/", function(req, res) {
 
 //creating Post route via Burger model
 router.post("/api/burger", function(req, res) {
-    burger.insertOne(req.body.burger_name, function(data) {
+    burger.insertOne(req.body.burger_name, function(result) {
       res.json({id: result.insertId});
     });
   });
 
 //creating Post route via Burger model
 router.put("/api/burger/:id", function(req, res) {
-    burger.updateOne(req.params.id, function(data){
+    burger.updateOne(req.params.id, function(result){
       res.json({id: result.updateID});
     });
   });
