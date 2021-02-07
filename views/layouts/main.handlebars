@@ -8,5 +8,27 @@
 </head>
 <body>
 {{{ body }}}
+
+ <script>
+    $("#submit-button").on("click", function(event) {
+        event.preventDefault();
+        var burger = {
+            burger_name: $("#new_burger").val().trim()
+        }
+        console.log(burger)
+        $.post("/api/burger", burger, function(data) {
+            location.reload();
+        })
+    });
+
+    $(".devour-button").on("click", function(event) {
+        event.preventDefault();
+        var id = $(this).data("id")
+
+        $.ajax({url: "api/burger/" + id, method: "PUT"}).then(function(data) {
+            location.reload();
+        })
+    })
+ </script>
 </body>
 </html>
