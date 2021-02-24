@@ -1,16 +1,12 @@
-
 var express = require("express");
-
-// https://stackoverflow.com/questions/38306569/what-does-body-parser-do-with-express
-var bodyParser = require("body-parser");
 
 var PORT = process.env.PORT || 3000;
 var app = express();
 
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
     extended: true
 }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 var exphbs = require("express-handlebars");
 
